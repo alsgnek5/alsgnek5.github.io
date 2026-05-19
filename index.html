@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양구군 문화관광 - 청정자연과 평화의 중심</title>
+    <meta name="description" content="대한민국 국토정중앙 양구군의 관광명소, 축제, 특산물, 여행 코스를 소개합니다.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#">
+                    <span class="logo-text">YANGGU</span>
+                    <span class="logo-sub">양구문화관광</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#about">양구소개</a></li>
+                    <li><a href="#attractions">관광명소</a></li>
+                    <li><a href="#courses">추천코스</a></li>
+                    <li><a href="#festivals">축제/행사</a></li>
+                    <li><a href="#food">음식/특산물</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <button class="menu-toggle" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <div class="mobile-menu-close">
+            <button id="close-menu-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#about">양구소개</a></li>
+            <li><a href="#attractions">관광명소</a></li>
+            <li><a href="#courses">추천코스</a></li>
+            <li><a href="#festivals">축제/행사</a></li>
+            <li><a href="#food">음식/특산물</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg" style="background-image: url('images/paroho_flower_island.jpg');"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h2 class="hero-subtitle">청춘양구</h2>
+            <h1 class="hero-title">양구에 오시면<br><span>10년이 젊어집니다</span></h1>
+            <p class="hero-desc">10년 전 그 시절의 청춘과 낭만이 머무는 곳, 맑고 푸른 양구에서 여러분의 가장 눈부신 순간을 되찾아보세요.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; align-items: center; margin-top: 30px;">
+                <a href="#attractions" class="btn btn-primary">관광지 둘러보기 <i class="fas fa-arrow-right"></i></a>
+                <a href="#puzzle-section" class="btn btn-secondary" style="background-color:#ff2a5f; border-color:#ff2a5f;">퍼즐로 여행 코스 짜기 <i class="fas fa-puzzle-piece"></i></a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <span>Scroll</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="quick-links-grid">
+                <a href="#" id="download-map-btn" class="quick-card" title="양구군 관광지도 보기">
+                    <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>관광지도 <i class="fas fa-search-plus" style="font-size:14px; margin-left:5px; color:var(--primary-color);"></i></h3>
+                    <p>공식 지도 보기</p>
+                </a>
+                <a href="https://bis.yanggubus.kr/schedule" target="_blank" class="quick-card">
+                    <div class="icon-box"><i class="fas fa-bus"></i></div>
+                    <h3>교통정보</h3>
+                    <p>버스 운행 시간표</p>
+                </a>
+                <a href="#" id="food-modal-btn" class="quick-card">
+                    <div class="icon-box"><i class="fas fa-hotel"></i></div>
+                    <h3>숙박/음식</h3>
+                    <p>모범음식점 안내</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Puzzle Course Maker Section -->
+    <section id="puzzle-section" class="puzzle-course section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">내 맘대로 맞추는 <span>양구 여행 퍼즐</span></h2>
+                <p class="section-desc">원하는 테마의 퍼즐 조각을 아래 빈칸에 끌어다 놓아 나만의 여행 코스를 완성해보세요! (클릭하여 삭제 가능)</p>
+            </div>
+            
+            <div class="puzzle-container">
+                <!-- Available Pieces -->
+                <div class="puzzle-source" id="puzzle-source">
+                    <div class="puzzle-piece" draggable="true" data-type="attraction"><i class="fas fa-camera"></i> 관광명소</div>
+                    <div class="puzzle-piece" draggable="true" data-type="food"><i class="fas fa-utensils"></i> 맛집탐방</div>
+                    <div class="puzzle-piece" draggable="true" data-type="nopo"><i class="fas fa-store-alt"></i> 찐 로컬 노포</div>
+                    <div class="puzzle-piece" draggable="true" data-type="cafe"><i class="fas fa-coffee"></i> 감성 카페</div>
+                    <div class="puzzle-piece" draggable="true" data-type="leisure"><i class="fas fa-bicycle"></i> 놀이/체험</div>
+                    <div class="puzzle-piece" draggable="true" data-type="hotel"><i class="fas fa-bed"></i> 편안한 숙박</div>
+                </div>
+
+                <!-- Drop Zones (Itinerary) -->
+                <div class="puzzle-board" id="puzzle-board">
+                    <div class="puzzle-slot" data-step="1"><span>코스 1</span></div>
+                    <div class="puzzle-slot" data-step="2"><span>코스 2</span></div>
+                    <div class="puzzle-slot" data-step="3"><span>코스 3</span></div>
+                    <div class="puzzle-slot" data-step="4"><span>코스 4</span></div>
+                </div>
+                
+                <div style="text-align:center; margin-top:30px;">
+                    <button class="btn btn-primary" id="generate-course-btn" disabled><i class="fas fa-magic"></i> 맞춤 코스 생성하기</button>
+                    <button class="btn btn-outline" id="reset-puzzle-btn" style="margin-left:10px;"><i class="fas fa-undo"></i> 다시하기</button>
+                </div>
+            </div>
+
+            <!-- Result Display -->
+            <div id="course-result" class="course-result hidden">
+                <h3>🎉 당신을 위한 맞춤형 양구 여행 코스!</h3>
+                <div class="timeline" id="course-timeline">
+                    <!-- Dynamic timeline items go here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Video Section -->
+    <section class="promo-video section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">양구 <span>랜선 여행</span></h2>
+                <p class="section-desc">영상으로 먼저 만나는 아름다운 양구의 매력</p>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/yYnJooSVvls?autoplay=0&rel=0&modestbranding=1" title="양구군 홍보영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hot Attractions Section -->
+    <section id="attractions" class="section attractions">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">양구 <span>핫플레이스</span></h2>
+                <p class="section-desc">양구에서 꼭 가봐야 할 아름다운 명소들을 소개합니다.</p>
+            </div>
+
+            <div class="attractions-grid">
+                <!-- Attraction 1 -->
+                <div class="attraction-card">
+                    <div class="card-img">
+                        <img src="images/dutaeyeon_valley_1779164935422.png" alt="두타연">
+                        <div class="card-badge">자연/생태</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>두타연</h3>
+                        <p>민통선 내 천혜의 비경을 간직한 생태계의 보고. 맑은 계곡물과 천연기념물 열목어가 서식하는 청정 지역입니다.</p>
+                        <button class="read-more btn-modal" data-id="dutaeyeon">자세히 보기 <i class="fas fa-angle-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Attraction 2 -->
+                <div class="attraction-card">
+                    <div class="card-img">
+                        <img src="images/punchbowl_landscape_1779164916970.png" alt="펀치볼">
+                        <div class="card-badge">경관/지질</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>해안분지 (펀치볼)</h3>
+                        <p>해발 1,000m가 넘는 산들로 둘러싸인 거대한 화채그릇 모양의 지형. 아침 안개가 피어오를 때의 장관이 압권입니다.</p>
+                        <button class="read-more btn-modal" data-id="punchbowl">자세히 보기 <i class="fas fa-angle-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Attraction 3 -->
+                <div class="attraction-card">
+                    <div class="card-img">
+                        <img src="images/hanbando_island_1779165948100.png" alt="한반도섬">
+                        <div class="card-badge">공원/휴양</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>한반도섬</h3>
+                        <p>파로호 상류에 조성된 국내 최대 규모의 인공 습지로, 한반도 지형을 그대로 본뜬 아름다운 산책로가 있습니다.</p>
+                        <button class="read-more btn-modal" data-id="hanbando">자세히 보기 <i class="fas fa-angle-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Attraction 4 -->
+                <div class="attraction-card">
+                    <div class="card-img">
+                        <img src="images/park_sugeun_museum_1779165965394.png" alt="박수근미술관">
+                        <div class="card-badge">문화/예술</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>박수근미술관</h3>
+                        <p>한국 근현대 대표 화가 박수근 선생의 생가터에 건립된 미술관. 아름다운 건축물과 함께 예술적 영감을 얻어보세요.</p>
+                        <button class="read-more btn-modal" data-id="museum">자세히 보기 <i class="fas fa-angle-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section (Parallax) -->
+    <section class="info-parallax" style="background-image: url('images/hero_bg_1779164902641.png');">
+        <div class="parallax-overlay"></div>
+        <div class="container parallax-content">
+            <h2>국토의 정중앙, 양구</h2>
+            <p>우리나라 4극지점의 중앙경선과 중앙위선이 교차하는 국토정중앙 양구에서 특별한 기운을 받아가세요.</p>
+            <p class="fortune-hint"><i class="fas fa-hand-pointer"></i> 이곳을 클릭하여 정중앙의 기운을 뽑아보세요!</p>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="150">0</span>
+                    <span class="stat-label">관광명소</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="4">0</span>
+                    <span class="stat-label">사계절 축제</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">0</span><span class="stat-plus">%</span>
+                    <span class="stat-label">청정자연</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Map Section -->
+    <section class="main-map-section section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">양구 <span>한눈에 보기</span></h2>
+                <p class="section-desc">처음 오시는 분들을 위해, 한반도의 정중앙 양구군의 위치와 관광지도를 안내해 드립니다.</p>
+            </div>
+            
+            <div class="map-grid">
+                <!-- Location Map & Medical Map Tabs -->
+                <div class="map-box">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                        <h3 style="margin:0;"><i class="fas fa-map-marker-alt"></i> 종합 지도</h3>
+                        <div class="map-tabs">
+                            <button class="map-tab-btn active" data-map="google">일반 지도</button>
+                            <button class="map-tab-btn" data-map="medical">응급/의료</button>
+                        </div>
+                    </div>
+                    
+                    <div class="iframe-wrapper map-content active" id="map-google">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100918.51347047713!2d127.91522271810574!3d38.105156477964436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3562a0a28f421577%3A0xc3c544faaf17f9e5!2z6rCV7JuQ7Yq567OE7J6Q7LmY64-EIOyWkey1rOq1sA!5e0!3m2!1sko!2skr!4v1716091000000!5m2!1sko!2skr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <!-- Medical Map -->
+                    <div class="medical-map-container map-content" id="map-medical">
+                        <div class="medical-map-bg"></div>
+                        <!-- Markers -->
+                        <div class="med-marker hospital" style="top:30%; left:35%;" data-name="양구 성심병원" data-type="hospital" data-items="내과, 외과, 24시간 응급실, 입원실">
+                            <i class="fas fa-h-square"></i>
+                        </div>
+                        <div class="med-marker hospital" style="top:45%; left:65%;" data-name="양구군 보건소" data-type="hospital" data-items="일반진료, 배탈 진료, 예방접종, 물리치료">
+                            <i class="fas fa-plus-square"></i>
+                        </div>
+                        <div class="med-marker pharmacy" style="top:35%; left:45%;" data-name="종로약국" data-type="pharmacy" data-items="감기약, 배탈약, 소화제, 진통제, 파스, 처방조제">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <div class="med-marker pharmacy" style="top:55%; left:50%;" data-name="백화점약국" data-type="pharmacy" data-items="아기용 해열제, 급체약, 상비약, 구급함, 처방조제">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        
+                        <!-- Info Popup -->
+                        <div class="med-info-popup" id="med-popup">
+                            <button id="med-close" class="med-close"><i class="fas fa-times"></i></button>
+                            <h4 id="med-title">이름</h4>
+                            <div class="med-tag" id="med-tag">분류</div>
+                            <p style="margin:0; font-size:14px;"><strong>취급/진료:</strong> <span id="med-items">내용</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tourist Map (Illustrated) -->
+                <div class="map-box">
+                    <h3><i class="fas fa-map"></i> 관광지도 미리보기</h3>
+                    <div class="tourist-map-preview" onclick="document.getElementById('map-modal').classList.add('active'); document.body.style.overflow = 'hidden';">
+                        <img src="map_new.png" alt="양구군 관광지도 미리보기">
+                        <div class="preview-overlay">
+                            <span><i class="fas fa-search-plus"></i> 크게 보기</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">YANGGU TOUR</div>
+                <div class="footer-sns">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>[24522] 강원특별자치도 양구군 양구읍 관공서로 38</p>
+                    <p>대표전화 : 033-480-2114 / 관광안내소 : 033-480-2675</p>
+                    <p class="copyright">&copy; YANGGU-GUN. ALL RIGHTS RESERVED.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">찾아오시는길</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Attraction Detail Modal Overlay -->
+    <div class="modal-overlay" id="attraction-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close-btn"><i class="fas fa-times"></i></button>
+            <div class="modal-body">
+                <div class="modal-img-wrapper">
+                    <img id="modal-img" src="" alt="Attraction Image">
+                </div>
+                <div class="modal-info">
+                    <div class="modal-tags" id="modal-tags">
+                        <span class="modal-tag" id="modal-tag-text">자연</span>
+                    </div>
+                    <h2 id="modal-title">Title</h2>
+                    <p id="modal-desc" class="modal-desc-text">Description goes here.</p>
+                    <div class="modal-details" id="modal-details">
+                        <!-- Add details like location, hours -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fortune Cookie Modal -->
+    <div class="modal-overlay" id="fortune-modal">
+        <div class="fortune-container">
+            <button class="modal-close" id="fortune-close-btn"><i class="fas fa-times"></i></button>
+            <div class="fortune-content">
+                <div class="fortune-cookie-icon" id="fortune-cookie-icon">🥠</div>
+                <h3 class="fortune-title">양구 정중앙의 기운</h3>
+                <p class="fortune-message" id="fortune-message">쿠키를 여는 중...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Viewer Modal -->
+    <div class="modal-overlay" id="map-modal">
+        <div class="map-container">
+            <button class="modal-close" id="map-close-btn"><i class="fas fa-times"></i></button>
+            <h3 class="map-title">🗺️ 양구군 공식 관광지도</h3>
+            <div class="map-wrapper">
+                <div class="map-inner">
+                    <img src="map_new.png" alt="양구 관광지도">
+                </div>
+            </div>
+            <div class="map-actions">
+                <a href="map_new.png" download="양구군_관광지도_최종.png" class="btn btn-primary"><i class="fas fa-download"></i> 지도 이미지 다운로드</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Food & Accommodation Modal -->
+    <div class="modal-overlay" id="food-modal">
+        <div class="modal-container table-modal-container">
+            <button class="modal-close" id="food-close-btn"><i class="fas fa-times"></i></button>
+            <div class="modal-header-custom">
+                <h3>🏨 양구군 숙박 및 음식점 현황</h3>
+                <p>양구군이 추천하는 편안한 숙소와 안심 식당입니다.</p>
+            </div>
+            
+            <!-- Tabs -->
+            <div class="modal-tabs">
+                <button class="tab-btn active" data-target="tab-accom">숙소 현황</button>
+                <button class="tab-btn" data-target="tab-food">모범 음식점</button>
+            </div>
+
+            <!-- Tab Content: Accommodations -->
+            <div class="tab-content active" id="tab-accom">
+                <div class="table-responsive">
+                    <table class="food-table">
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>숙소명</th>
+                                <th>유형</th>
+                                <th>특징 및 위치</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>베니키아 KCP 호텔</td><td>호텔</td><td>양구 대표 호텔, 가족 단위 추천</td></tr>
+                            <tr><td>2</td><td>양구 현대모텔</td><td>모텔</td><td>터미널 인근, 가성비 및 접근성 우수</td></tr>
+                            <tr><td>3</td><td>양구 삼호장모텔</td><td>모텔</td><td>뚜벅이 여행객 추천, 터미널 도보권</td></tr>
+                            <tr><td>4</td><td>양구 봄일랑 모텔</td><td>모텔</td><td>깔끔한 시설, 합리적 가격</td></tr>
+                            <tr><td>5</td><td>양구 테마모텔</td><td>모텔</td><td>방음 시설 우수, 청결한 환경</td></tr>
+                            <tr><td>6</td><td>한나펜션</td><td>펜션</td><td>복층 구조, 프라이빗 바비큐 시설</td></tr>
+                            <tr><td>7</td><td>양구 엄마네펜션</td><td>펜션</td><td>종합운동장 인근, 취사 및 세탁 가능</td></tr>
+                            <tr><td>8</td><td>한반도황토펜션</td><td>펜션</td><td>친환경 황토 건물, 건강/힐링 숙소</td></tr>
+                            <tr><td>9</td><td>나비야펜션</td><td>펜션</td><td>자연 속 조용한 휴식, 면회객 추천</td></tr>
+                            <tr><td>10</td><td>민들레펜션</td><td>펜션</td><td>외곽 위치, 조용한 분위기</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab Content: Food -->
+            <div class="tab-content" id="tab-food">
+                <div class="table-responsive">
+                    <table class="food-table">
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>업소명</th>
+                                <th>전화번호</th>
+                                <th>주메뉴</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                        <tr><td>1</td><td>감람원</td><td>033-481-6788</td><td>삼계탕</td></tr>
+                        <tr><td>2</td><td>광치막국수</td><td>033-481-4095</td><td>막국수</td></tr>
+                        <tr><td>3</td><td>꽃보다 소 양구점</td><td>033-482-3175</td><td>숯불구이</td></tr>
+                        <tr><td>4</td><td>도촌삼계탕</td><td>033-482-1002</td><td>삼계탕</td></tr>
+                        <tr><td>5</td><td>도촌막국수식당</td><td>033-481-4627</td><td>막국수</td></tr>
+                        <tr><td>6</td><td>돈 갈비</td><td>033-482-9289</td><td>숯불구이</td></tr>
+                        <tr><td>7</td><td>모범떡볶이</td><td>033-481-9827</td><td>떡볶이</td></tr>
+                        <tr><td>8</td><td>비비큐·우쿠야</td><td>033-481-1318</td><td>치킨, 돈까스</td></tr>
+                        <tr><td>9</td><td>샤브향</td><td>033-482-5633</td><td>고기류 샤브</td></tr>
+                        <tr><td>10</td><td>소나무함흥냉면막국수</td><td>033-482-5234</td><td>냉면</td></tr>
+                        <tr><td>11</td><td>시래정</td><td>033-481-6616</td><td>시래기정식</td></tr>
+                        <tr><td>12</td><td>양구수산횟집</td><td>033-481-2643</td><td>민물회,매운탕</td></tr>
+                        <tr><td>13</td><td>오래드림고원</td><td>033-481-9224</td><td>식육</td></tr>
+                        <tr><td>14</td><td>이가돈가</td><td>033-481-1400</td><td>숯불구이</td></tr>
+                        <tr><td>15</td><td>장수오골계</td><td>033-481-8175</td><td>오골계구이, 탕류</td></tr>
+                        <tr><td>16</td><td>청참치</td><td>033-481-7233</td><td>참치회, 바다회</td></tr>
+                        <tr><td>17</td><td>최가네</td><td>033-481-3338</td><td>숯불구이</td></tr>
+                        <tr><td>18</td><td>회마을</td><td>033-481-5939</td><td>바다회, 매운탕</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- BGM -->
+    <audio id="bgm" loop>
+        <source src="yanggu.mp3" type="audio/mpeg">
+    </audio>
+    <button id="bgm-toggle" class="bgm-btn" title="배경음악 재생/정지">
+        <i class="fas fa-volume-mute"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

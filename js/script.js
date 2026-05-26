@@ -905,12 +905,81 @@ document.addEventListener('DOMContentLoaded', () => {
     if (foodDetailCloseBtnBottom) {
         foodDetailCloseBtnBottom.addEventListener('click', closeFoodDetailModal);
     }
-
     if (foodDetailModal) {
         foodDetailModal.addEventListener('click', (e) => {
             if (e.target === foodDetailModal) {
                 closeFoodDetailModal();
             }
+        });
+    }
+
+    // --- Custom Toast Notification Helper ---
+    const showToast = (title, message, type = 'success') => {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+
+        const toast = document.createElement('div');
+        toast.className = `toast-message ${type}`;
+
+        const iconClass = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+        
+        toast.innerHTML = `
+            <div class="toast-icon"><i class="fas ${iconClass}"></i></div>
+            <div class="toast-content">
+                <h5>${title}</h5>
+                <p>${message}</p>
+            </div>
+        `;
+
+        container.appendChild(toast);
+
+        // Auto remove after 4 seconds
+        setTimeout(() => {
+            toast.classList.add('fade-out');
+            setTimeout(() => {
+                toast.remove();
+            }, 300);
+        }, 4000);
+    };
+
+    // --- EmailJS Form Submission ---
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('contact-submit-btn');
+
+    if (contactForm && submitBtn) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Set sending state
+            submitBtn.disabled = true;
+            submitBtn.classList.add('sending');
+            const submitBtnSpan = submitBtn.querySelector('span');
+            const originalText = submitBtnSpan.textContent;
+            submitBtnSpan.textContent = '전송 중...';
+
+            const templateParams = {
+                name: document.getElementById('contact-name').value,
+                email: document.getElementById('contact-email').value,
+                title: document.getElementById('contact-title').value,
+                message: document.getElementById('contact-message').value,
+                time: new Date().toLocaleString('ko-KR')
+            };
+
+            emailjs.send('service_bmacaox', 'template_7sd1fhr', templateParams)
+                .then((response) => {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showToast('전송 성공 🎉', '문의가 성공적으로 전달되었습니다! 기재하신 이메일로 빠르게 답변 드리겠습니다.', 'success');
+                    contactForm.reset();
+                }, (error) => {
+                    console.log('FAILED...', error);
+                    showToast('전송 실패 😢', '이메일 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.', 'error');
+                })
+                .finally(() => {
+                    // Restore button state
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('sending');
+                    submitBtnSpan.textContent = originalText;
+                });
         });
     }
 

@@ -983,5 +983,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Education Notice Modal Logic ---
+    const educationNoticeModal = document.getElementById('education-notice-modal');
+    const educationNoticeCloseBtn = document.getElementById('education-notice-close-btn');
+    const educationNoticeConfirmBtn = document.getElementById('education-notice-confirm-btn');
+
+    if (educationNoticeModal) {
+        // Check sessionStorage to show only once per session
+        if (!sessionStorage.getItem('education_notice_closed')) {
+            educationNoticeModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        const closeNoticeModal = () => {
+            educationNoticeModal.classList.remove('active');
+            document.body.style.overflow = '';
+            sessionStorage.setItem('education_notice_closed', 'true');
+        };
+
+        if (educationNoticeCloseBtn) {
+            educationNoticeCloseBtn.addEventListener('click', closeNoticeModal);
+        }
+        if (educationNoticeConfirmBtn) {
+            educationNoticeConfirmBtn.addEventListener('click', closeNoticeModal);
+        }
+
+        educationNoticeModal.addEventListener('click', (e) => {
+            if (e.target === educationNoticeModal) {
+                closeNoticeModal();
+            }
+        });
+    }
+
 });
 

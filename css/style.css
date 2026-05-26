@@ -2687,5 +2687,77 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Education Notice Modal Styles */
+#education-notice-modal .notice-container {
+    background: var(--white);
+    width: 90%;
+    max-width: 480px;
+    padding: 45px 35px;
+    text-align: center;
+    border-radius: 24px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#education-notice-modal.active .notice-container {
+    transform: scale(1);
+}
+
+.notice-icon-wrapper {
+    font-size: 64px;
+    margin-bottom: 24px;
+    color: var(--primary-color);
+    display: inline-block;
+    animation: noticeBounce 2.5s ease infinite;
+}
+
+@keyframes noticeBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.notice-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -0.5px;
+}
+
+.notice-desc {
+    font-size: 16.5px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 500;
+    word-break: keep-all;
+}
+
+.notice-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 16.5px;
+    border-radius: 12px;
+    font-weight: 700;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(255, 42, 95, 0.2);
+    transition: all 0.2s ease;
+}
+
+.notice-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 42, 95, 0.3);
+}
+
+.notice-btn:active {
+    transform: translateY(0);
+}
+
 
 
